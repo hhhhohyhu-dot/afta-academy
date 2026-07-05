@@ -13,34 +13,57 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AFTA Academy Meknes | Aviation & Cabin Crew Training in Morocco",
+  metadataBase: new URL("https://afta-academy.vercel.app"),
+
+  title: {
+    default: "AFTA Academy Meknes",
+    template: "%s | AFTA Academy Meknes",
+  },
+
   description:
-    "AFTA Academy Meknes is a leading aviation academy in Morocco specializing in Cabin Crew, Flight Attendant, Travel & Tourism, Hospitality, and Aviation training.",
+    "AFTA Academy Meknes is a leading aviation academy in Morocco offering Cabin Crew, Flight Attendant, Travel & Tourism and Hospitality training.",
+
   keywords: [
     "AFTA Academy",
     "AFTA Academy Meknes",
     "Aviation Academy Morocco",
     "Cabin Crew Morocco",
     "Flight Attendant Morocco",
-    "Air Hostess Morocco",
-    "Steward Morocco",
     "Travel and Tourism",
-    "Hospitality Training",
-    "Aviation School Meknes",
-    "Morocco Aviation Academy",
-    "Cabin Crew Training",
-    "Formation Hôtesse de l'air Maroc",
-    "École d'aviation Maroc",
-    "معهد الطيران",
-    "أكاديمية الطيران",
+    "Hospitality",
+    "Meknes",
+    "Morocco",
+    "Formation Hôtesse de l'air",
+    "École d'aviation",
+    "وكيل سفر وطيران",
     "مضيفات الطيران",
-    "مضيفي الطيران",
-    "التسجيل في أكاديمية الطيران",
-    "مكناس",
+    "أكاديمية الطيران",
+    "معهد الطيران بالمغرب",
   ],
-  authors: [{ name: "AFTA Academy Meknes" }],
-  creator: "AFTA Academy Meknes",
-  publisher: "AFTA Academy Meknes",
+
+  openGraph: {
+    title: "AFTA Academy Meknes",
+    description:
+      "Professional Aviation & Cabin Crew Training in Morocco",
+    url: "https://afta-academy.vercel.app",
+    siteName: "AFTA Academy Meknes",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/images/aviation.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "AFTA Academy Meknes",
+    description: "Professional Aviation Training in Morocco",
+    images: ["/images/aviation.jpg"],
+  },
 };
 
 export default function RootLayout({
