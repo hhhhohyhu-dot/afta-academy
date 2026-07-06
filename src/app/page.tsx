@@ -2,7 +2,7 @@
 "use client";
 import React, { useState } from 'react';
 
-// استيراد المكونات (حذفنا AdmissionInfo)
+// استيراد المكونات
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AnimatedStatistics from "@/components/AnimatedStatistics";
@@ -12,7 +12,10 @@ import Programs from "@/components/Programs";
 import TrainingJourney from "@/components/TrainingJourney";
 import CampusLife from "@/components/CampusLife";
 import AirlinePartners from "@/components/AirlinePartners";
+import Testimonials from "@/components/Testimonials"; // <-- زدنا آراء الخريجين
 import Gallery from "@/components/Gallery";
+import ParallaxBanner from "@/components/ParallaxBanner"; // <-- زدنا البانر المتحرك
+import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -40,9 +43,16 @@ export default function Home() {
       <TrainingJourney lang={lang} />
       <CampusLife lang={lang} />
       
-      {/* الشركاء والمعرض */}
+      {/* الشركاء، آراء الخريجين، والمعرض */}
       <AirlinePartners lang={lang} />
+      <Testimonials lang={lang} /> {/* <-- حطيناه مورا الشركاء باش يزيد الثقة */}
       <Gallery lang={lang} />
+      
+      {/* البانر المتحرك (Parallax) */}
+      <ParallaxBanner lang={lang} /> {/* <-- حطيناه قبل الأسئلة الشائعة باش يكسر الروتين دالصفحة */}
+      
+      {/* قسم الأسئلة الشائعة */}
+      <FAQ lang={lang} />
       
       {/* التذييل وتواصل */}
       <CTA lang={lang} />
