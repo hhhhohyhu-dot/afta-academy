@@ -23,14 +23,17 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link 
+          href="/" 
+          className="flex items-center bg-white/95 hover:bg-white px-4 py-2 rounded-2xl shadow-[0_0_15px_rgba(255,255,255,0.05)] transition-all duration-300"
+        >
           <Image
-            src="/images/logo.png"
+            src="/images/logo.jpg"
             alt="AFTA Academy"
-            width={220}
-            height={80}
+            width={260}
+            height={90}
             priority
-            className="h-16 md:h-20 w-auto object-contain"
+            className="h-12 md:h-14 w-auto object-contain"
           />
         </Link>
 
@@ -69,7 +72,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
 
           <Link
             href="/register"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl font-bold transition"
+            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl font-bold transition shadow-lg hover:shadow-orange-500/30"
           >
             {isAr ? "سجل الآن" : "Register Now"}
           </Link>
@@ -78,7 +81,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
         {/* Mobile Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white"
+          className="md:hidden text-white hover:text-orange-500 transition-colors"
         >
           <svg
             className="w-7 h-7"
@@ -107,19 +110,24 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-slate-900 border-t border-slate-800"
+            className="md:hidden bg-slate-900 border-t border-slate-800 overflow-hidden"
           >
             <div
               className="flex flex-col gap-4 p-6"
               dir={isAr ? "rtl" : "ltr"}
             >
-              <Link href="/" onClick={() => setIsOpen(false)}>
+              <Link 
+                href="/" 
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:text-orange-500 font-medium transition-colors"
+              >
                 {isAr ? "الرئيسية" : "Home"}
               </Link>
 
               <Link
                 href="/requirements"
                 onClick={() => setIsOpen(false)}
+                className="text-white hover:text-orange-500 font-medium transition-colors"
               >
                 {isAr ? "شروط التسجيل" : "Requirements"}
               </Link>
@@ -127,6 +135,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
               <Link
                 href="/register"
                 onClick={() => setIsOpen(false)}
+                className="text-white hover:text-orange-500 font-medium transition-colors"
               >
                 {isAr ? "سجل الآن" : "Register Now"}
               </Link>
@@ -136,7 +145,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                   toggleLang();
                   setIsOpen(false);
                 }}
-                className="text-orange-500 text-left"
+                className="text-orange-500 text-left font-medium mt-2"
               >
                 {isAr ? "English" : "العربية"}
               </button>
