@@ -12,8 +12,10 @@
     "framer-motion": "^12.42.2",
     "next": "16.2.10",
     "react": "19.2.4",
+    "react-calendly": "^4.4.0",
     "react-dom": "19.2.4",
     "react-photo-album": "^3.6.0",
+    "resend": "^6.17.1",
     "yet-another-react-lightbox": "^3.32.0"
   },
   "devDependencies": {
