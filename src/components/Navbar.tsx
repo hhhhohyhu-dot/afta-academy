@@ -18,6 +18,9 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
     setLang(isAr ? "en" : "ar");
   };
 
+  // وظيفة باش يرجع للـ Top قبل ما يسد الموبايل مينيو
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 shadow-lg">
       <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
@@ -38,67 +41,32 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
         </Link>
 
         {/* Desktop Menu */}
-        <div
-          className="hidden md:flex items-center gap-8"
-          dir={isAr ? "rtl" : "ltr"}
-        >
-          <Link
-            href="/"
-            className="text-white hover:text-orange-500 font-semibold transition"
-          >
+        <div className="hidden md:flex items-center gap-8" dir={isAr ? "rtl" : "ltr"}>
+          <Link href="/" className="text-white hover:text-orange-500 font-semibold transition">
             {isAr ? "الرئيسية" : "Home"}
           </Link>
-
-          <Link
-            href="/requirements"
-            className="text-white hover:text-orange-500 font-semibold transition"
-          >
+          <Link href="/requirements" className="text-white hover:text-orange-500 font-semibold transition">
             {isAr ? "شروط التسجيل" : "Requirements"}
           </Link>
-
-          <a
-            href="#contact"
-            className="text-white hover:text-orange-500 font-semibold transition"
-          >
+          
+          {/* هاد الرابط دابا خدام لـ Contact Section */}
+          <Link href="/#contact" className="text-white hover:text-orange-500 font-semibold transition">
             {isAr ? "اتصل بنا" : "Contact"}
-          </a>
+          </Link>
 
-          <button
-            onClick={toggleLang}
-            className="px-4 py-2 rounded-xl border border-slate-700 bg-slate-800 text-white hover:bg-slate-700 transition"
-          >
+          <button onClick={toggleLang} className="px-4 py-2 rounded-xl border border-slate-700 bg-slate-800 text-white hover:bg-slate-700 transition">
             {isAr ? "English" : "العربية"}
           </button>
 
-          <Link
-            href="/register"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl font-bold transition shadow-lg hover:shadow-orange-500/30"
-          >
+          <Link href="/register" className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl font-bold transition shadow-lg hover:shadow-orange-500/30">
             {isAr ? "سجل الآن" : "Register Now"}
           </Link>
         </div>
 
         {/* Mobile Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white hover:text-orange-500 transition-colors"
-        >
-          <svg
-            className="w-7 h-7"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d={
-                isOpen
-                  ? "M6 18L18 6M6 6l12 12"
-                  : "M4 6h16M4 12h16M4 18h16"
-              }
-            />
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white hover:text-orange-500 transition-colors">
+          <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
           </svg>
         </button>
       </div>
@@ -112,41 +80,21 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-slate-900 border-t border-slate-800 overflow-hidden"
           >
-            <div
-              className="flex flex-col gap-4 p-6"
-              dir={isAr ? "rtl" : "ltr"}
-            >
-              <Link 
-                href="/" 
-                onClick={() => setIsOpen(false)}
-                className="text-white hover:text-orange-500 font-medium transition-colors"
-              >
+            <div className="flex flex-col gap-4 p-6" dir={isAr ? "rtl" : "ltr"}>
+              <Link href="/" onClick={closeMenu} className="text-white hover:text-orange-500 font-medium transition-colors">
                 {isAr ? "الرئيسية" : "Home"}
               </Link>
-
-              <Link
-                href="/requirements"
-                onClick={() => setIsOpen(false)}
-                className="text-white hover:text-orange-500 font-medium transition-colors"
-              >
+              <Link href="/requirements" onClick={closeMenu} className="text-white hover:text-orange-500 font-medium transition-colors">
                 {isAr ? "شروط التسجيل" : "Requirements"}
               </Link>
-
-              <Link
-                href="/register"
-                onClick={() => setIsOpen(false)}
-                className="text-white hover:text-orange-500 font-medium transition-colors"
-              >
+              {/* الاتصال فالموبايل */}
+              <Link href="/#contact" onClick={closeMenu} className="text-white hover:text-orange-500 font-medium transition-colors">
+                {isAr ? "اتصل بنا" : "Contact"}
+              </Link>
+              <Link href="/register" onClick={closeMenu} className="text-white hover:text-orange-500 font-medium transition-colors">
                 {isAr ? "سجل الآن" : "Register Now"}
               </Link>
-
-              <button
-                onClick={() => {
-                  toggleLang();
-                  setIsOpen(false);
-                }}
-                className="text-orange-500 text-left font-medium mt-2"
-              >
+              <button onClick={() => { toggleLang(); closeMenu(); }} className="text-orange-500 text-left font-medium mt-2">
                 {isAr ? "English" : "العربية"}
               </button>
             </div>
