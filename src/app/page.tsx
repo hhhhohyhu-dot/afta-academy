@@ -2,13 +2,12 @@
 "use client";
 import React, { useState } from 'react';
 
-// استيراد المكونات (تم الحفاظ عليها كما هي)
+// استيراد المكونات (حذفنا AdmissionInfo)
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AnimatedStatistics from "@/components/AnimatedStatistics";
 import JobBenefits from "@/components/JobBenefits";
 import AboutAcademy from "@/components/AboutAcademy";
-import AdmissionInfo from "@/components/AdmissionInfo";
 import Programs from "@/components/Programs";
 import TrainingJourney from "@/components/TrainingJourney";
 import CampusLife from "@/components/CampusLife";
@@ -39,7 +38,6 @@ export default function Home() {
       {/* قسم البرامج والتدريب */}
       <Programs lang={lang} />
       <TrainingJourney lang={lang} />
-      <AdmissionInfo lang={lang} />
       <CampusLife lang={lang} />
       
       {/* الشركاء والمعرض */}
