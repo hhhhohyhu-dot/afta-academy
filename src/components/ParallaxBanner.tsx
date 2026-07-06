@@ -11,40 +11,38 @@ export default function ParallaxBanner({ lang }: ParallaxBannerProps) {
   const isAr = lang === 'ar';
   const ref = useRef(null);
   
-  // هاد الهوك كيتبع السكرول ديال هاد القسم بالضبط
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
   });
 
-  // هنا كنقولو للصورة تحرك من -20% لـ 20% باش تعطينا تأثير Parallax
   const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
 
   return (
-    <section ref={ref} className="relative h-[60vh] min-h-[400px] overflow-hidden flex items-center justify-center">
+    // زدنا bg-slate-900 كخلفية احتياطية باش النص ديما يبقى مقروء
+    <section ref={ref} className="relative h-[60vh] min-h-[400px] overflow-hidden flex items-center justify-center bg-slate-900">
       
-      {/* خلفية الصورة المتحركة */}
+      {/* الصورة - درنا z-0 باش تبقى لداخل وما تخبعش مورا الموقع */}
       <motion.div 
-        className="absolute top-0 left-0 w-full h-[140%] -z-10"
+        className="absolute top-0 left-0 w-full h-[140%] z-0"
         style={{ 
           y,
-          // استعملنا تصويرة من المجلد ديالك، تقدر تبدلها بـ 2.jpg ولا أي تصويرة عندك فيها جودة طالعة
-          backgroundImage: "url('/images/1.jpg')", 
+          backgroundImage: "url('/images/1.jpg')", // تأكد أن هاد التصويرة كاينا عندك فـ public/images
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       />
       
-      {/* طبقة شفافة كحلة (Overlay) باش يبان النص بوضوح وما يتخالطش مع الصورة */}
-      <div className="absolute inset-0 bg-slate-900/65 -z-10" />
+      {/* الطبقة المظلمة - درنا z-10 باش تغمق الصورة وتخلي النص يبان */}
+      <div className="absolute inset-0 bg-slate-900/70 z-10" />
 
-      {/* المحتوى النصي */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto" dir={isAr ? "rtl" : "ltr"}>
+      {/* المحتوى النصي - درنا z-20 باش يكون هو الفوقاني كاع */}
+      <div className="relative z-20 text-center px-6 max-w-4xl mx-auto" dir={isAr ? "rtl" : "ltr"}>
         <motion.h2 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight"
+          className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight drop-shadow-lg"
         >
           {isAr ? "مستقبلك في قطاع الطيران يبدأ من هنا" : "Your Future in Aviation Starts Here"}
         </motion.h2>
@@ -54,7 +52,7 @@ export default function ParallaxBanner({ lang }: ParallaxBannerProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-lg md:text-xl text-slate-200 mb-8"
+          className="text-lg md:text-xl text-slate-200 mb-8 drop-shadow-md"
         >
           {isAr 
             ? "انضم إلى نخبة المتدربين في أكاديمية AFTA وانطلق نحو العالمية بثقة واحترافية." 
