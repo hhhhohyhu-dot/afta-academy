@@ -2,6 +2,7 @@
 "use client";
 import React from 'react';
 import { motion } from "framer-motion";
+import Link from "next/link"; // ضروري نزيدو هاد السطر
 
 interface CTAProps {
   lang: 'en' | 'ar';
@@ -56,12 +57,20 @@ export default function CTA({ lang }: CTAProps) {
           transition={{ delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <button className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold text-md rounded-full transition-all shadow-lg hover:shadow-blue-500/30 w-full sm:w-auto">
+          {/* حولنا button لـ Link وزدنا text-center باش يبقاو مقادين في التليفون */}
+          <Link 
+            href="/register" 
+            className="text-center px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold text-md rounded-full transition-all shadow-lg hover:shadow-blue-500/30 w-full sm:w-auto inline-block"
+          >
             {isAr ? "قدّم طلبك الآن" : "Apply Now"}
-          </button>
-          <button className="px-8 py-4 bg-transparent border border-slate-700 hover:border-white hover:bg-white hover:text-slate-950 text-slate-300 font-bold text-md rounded-full transition-all w-full sm:w-auto">
+          </Link>
+          
+          <Link 
+            href="/requirements" 
+            className="text-center px-8 py-4 bg-transparent border border-slate-700 hover:border-white hover:bg-white hover:text-slate-950 text-slate-300 font-bold text-md rounded-full transition-all w-full sm:w-auto inline-block"
+          >
             {isAr ? "اكتشف المزيد" : "Explore Careers"}
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

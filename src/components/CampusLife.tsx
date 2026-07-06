@@ -31,7 +31,7 @@ export default function CampusLife({ lang }: CampusLifeProps) {
             loop 
             muted 
             playsInline 
-            poster="/images/video-placeholder.jpg" 
+            poster="/images/1.jpg" /* تم التصحيح هنا: عوضنا التصويرة لي مكيناش بـ 1.jpg */
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/videos/hero-video.mp4" type="video/mp4" />

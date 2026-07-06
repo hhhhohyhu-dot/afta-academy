@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
 
-// استخدام تعريف النوع مباشرة كما في المكونات السابقة لضمان التوافق
 interface ContactProps {
   lang: 'en' | 'ar';
 }
@@ -65,7 +64,7 @@ export default function Contact({ lang }: ContactProps) {
 
           {/* بطاقة الانستغرام */}
           <motion.a 
-            href="https://instagram.com/afta_academy" 
+            href="https://www.instagram.com/afta_academy_meknes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
             target="_blank" 
             rel="noopener noreferrer"
             whileHover={{ y: -5 }}
@@ -79,7 +78,7 @@ export default function Contact({ lang }: ContactProps) {
               </svg>
             </div>
             <h3 className="text-lg font-bold text-slate-900 mb-2">{isAr ? 'انستغرام' : 'Instagram'}</h3>
-            <p className="text-slate-500 text-sm font-medium">@afta_academy</p>
+            <p className="text-slate-500 text-sm font-medium">@afta_academy_meknes</p>
           </motion.a>
 
         </div>

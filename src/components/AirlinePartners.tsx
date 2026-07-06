@@ -9,13 +9,14 @@ interface AirlinePartnersProps {
   lang: "en" | "ar";
 }
 
+// هنا فين كان المشكل: بدلنا الروابط القدام بالجداد
 const airlines = [
-  { name: "Aviation", logo: "/images/aviation.jpg" },
-  { name: "Aviation 1", logo: "/images/aviation1.jpg" },
-  { name: "Classroom", logo: "/images/classroom.jpg" },
-  { name: "Maritime", logo: "/images/maritime.jpg" },
-  { name: "Image 3", logo: "/images/im3.jpg" },
-  { name: "Image 4", logo: "/images/im4.jpg" },
+  { name: "Partner 1", logo: "/images/1.jpg" },
+  { name: "Partner 2", logo: "/images/2.jpg" },
+  { name: "Partner 3", logo: "/images/3.jpg" },
+  { name: "Partner 4", logo: "/images/4.jpg" },
+  { name: "Partner 5", logo: "/images/5.jpg" },
+  { name: "Partner 6", logo: "/images/6.jpg" },
 ];
 
 export default function AirlinePartners({ lang }: AirlinePartnersProps) {
@@ -61,7 +62,7 @@ export default function AirlinePartners({ lang }: AirlinePartnersProps) {
                 alt={airline.name}
                 width={160}
                 height={80}
-                className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-500"
+                className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-500 rounded-lg"
                 sizes="(max-width:768px) 128px, 160px"
                 unoptimized
                 priority={index < 3}
