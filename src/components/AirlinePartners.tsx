@@ -9,14 +9,14 @@ interface AirlinePartnersProps {
   lang: "en" | "ar";
 }
 
-// هنا فين كان المشكل: بدلنا الروابط القدام بالجداد
+// هنا قادينا الصيغ على حساب التصاور لي عندك فالمجلد بالضبط
 const airlines = [
-  { name: "Partner 1", logo: "/images/1.jpg" },
-  { name: "Partner 2", logo: "/images/2.jpg" },
-  { name: "Partner 3", logo: "/images/3.jpg" },
-  { name: "Partner 4", logo: "/images/4.jpg" },
-  { name: "Partner 5", logo: "/images/5.jpg" },
-  { name: "Partner 6", logo: "/images/6.jpg" },
+  { name: "Royal Air Maroc", logo: "/images/ram.webp" },
+  { name: "Air Arabia", logo: "/images/airarabia.jpg" },
+  { name: "Emirates", logo: "/images/emirates.jpg" },
+  { name: "Ryanair", logo: "/images/ryanair.jpg" },
+  { name: "Qatar Airways", logo: "/images/qatar.jpg" },
+  { name: "Turkish Airlines", logo: "/images/turkish.jpg" },
 ];
 
 export default function AirlinePartners({ lang }: AirlinePartnersProps) {
@@ -44,10 +44,10 @@ export default function AirlinePartners({ lang }: AirlinePartnersProps) {
 
       <div className="relative w-full overflow-hidden">
         <motion.div
-          className="flex items-center gap-12 w-max"
+          className="flex items-center gap-16 w-max"
           animate={{ x: ["0%", "-50%"] }}
           transition={{
-            duration: 30,
+            duration: 35,
             ease: "linear",
             repeat: Infinity,
           }}
@@ -55,17 +55,17 @@ export default function AirlinePartners({ lang }: AirlinePartnersProps) {
           {[...airlines, ...airlines].map((airline, index) => (
             <div
               key={`${airline.name}-${index}`}
-              className="flex-shrink-0 w-32 h-16 md:w-40 md:h-20 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500"
+              className="flex-shrink-0 w-32 h-16 md:w-48 md:h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500"
             >
               <Image
                 src={airline.logo}
                 alt={airline.name}
-                width={160}
-                height={80}
-                className="w-full h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-500 rounded-lg"
-                sizes="(max-width:768px) 128px, 160px"
+                width={180}
+                height={90}
+                className="w-full h-full object-contain opacity-60 hover:opacity-100 transition-opacity duration-500 mix-blend-multiply" // زدت mix-blend-multiply باش الخلفية البيضاء ديال jpg تندمج مع الخلفية ديال الموقع
+                sizes="(max-width:768px) 128px, 180px"
                 unoptimized
-                priority={index < 3}
+                priority={index < 4}
               />
             </div>
           ))}
