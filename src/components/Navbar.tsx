@@ -54,11 +54,11 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
             {isAr ? "اتصل بنا" : "Contact"}
           </Link>
 
-          <button onClick={toggleLang} className="px-4 py-2 rounded-xl border border-slate-700 bg-slate-800 text-white hover:bg-slate-700 transition">
+          <button onClick={toggleLang} className="px-4 py-2 rounded-xl border border-slate-700 bg-slate-800/80 backdrop-blur-md text-white hover:bg-slate-700 transition">
             {isAr ? "English" : "العربية"}
           </button>
 
-          <Link href="/register" className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl font-bold transition shadow-lg hover:shadow-orange-500/30">
+          <Link href="/register" className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white px-6 py-3 rounded-xl font-bold transition-all duration-300 shadow-[0_0_15px_rgba(245,158,11,0.4)] hover:shadow-[0_0_25px_rgba(245,158,11,0.6)] hover:-translate-y-0.5">
             {isAr ? "سجل الآن" : "Register Now"}
           </Link>
         </div>

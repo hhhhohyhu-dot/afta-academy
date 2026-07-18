@@ -38,20 +38,20 @@ export default function Hero({ lang }: HeroProps) {
         <source src="/videos/new-video.mp4" type="video/mp4" />
       </video>
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/40 z-10"></div>
+      {/* Dark Gradient Overlay for better contrast and premium look */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/60 to-slate-900 z-10"></div>
 
       {/* Buttons Container */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
         className="absolute bottom-20 left-1/2 -translate-x-1/2 z-50 flex flex-col sm:flex-row items-center gap-4 w-full justify-center px-4"
       >
-        {/* زر قدّم طلبك الآن (Primary Button) */}
+        {/* زر قدّم طلبك الآن (Primary Button) - Amber/Gold for premium look */}
         <Link 
           href="/register" 
-          className="w-full sm:w-auto text-center bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg px-8 py-3 rounded-full shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all duration-300 hover:scale-105 inline-block"
+          className="w-full sm:w-auto text-center bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white font-bold text-lg px-8 py-3 rounded-full shadow-[0_0_25px_rgba(245,158,11,0.5)] transition-all duration-300 hover:scale-105 inline-block"
         >
           {currentContent.ctaPrimary}
         </Link>
