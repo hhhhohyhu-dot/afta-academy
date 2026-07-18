@@ -12,6 +12,7 @@ import Programs from "@/components/Programs";
 import TrainingJourney from "@/components/TrainingJourney";
 import CampusLife from "@/components/CampusLife";
 import AirlinePartners from "@/components/AirlinePartners";
+import Interactive3DPlane from "@/components/Interactive3DPlane";
 import Testimonials from "@/components/Testimonials"; // <-- زدنا آراء الخريجين
 import Gallery from "@/components/Gallery";
 import ParallaxBanner from "@/components/ParallaxBanner"; // <-- زدنا البانر المتحرك
@@ -40,6 +41,7 @@ export default function Home() {
       
       {/* قسم البرامج والتدريب */}
       <Programs lang={lang} />
+      <Interactive3DPlane lang={lang} />
       <TrainingJourney lang={lang} />
       <CampusLife lang={lang} />
       
