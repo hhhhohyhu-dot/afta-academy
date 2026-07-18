@@ -2,6 +2,7 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
+import Tilt from 'react-parallax-tilt';
 
 // إضافة الـ Interface لتجنب أخطاء TypeScript
 interface ProgramsProps {
@@ -28,9 +29,9 @@ export default function Programs({ lang }: ProgramsProps) {
   ];
 
   return (
-    <section className="py-20 px-6 bg-slate-50">
+    <section className="py-20 px-6 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-black mb-12 text-center text-slate-900">
+        <h2 className="text-4xl font-black mb-12 text-center text-slate-900 dark:text-white">
           {lang === 'ar' ? 'برامجنا التكوينية المعتمدة' : 'Our Accredited Programs'}
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
@@ -40,22 +41,31 @@ export default function Programs({ lang }: ProgramsProps) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
-              className="bg-white p-8 rounded-3xl border border-slate-100 shadow-xl flex flex-col justify-between"
             >
-              <div>
-                <h3 className="text-2xl font-bold mb-4 text-slate-900">{prog.title}</h3>
-                <p className="text-slate-600 mb-6 leading-relaxed">{prog.description}</p>
-                <div className="inline-block px-4 py-1 bg-orange-100 text-orange-700 rounded-full font-bold text-sm mb-6">
-                  {prog.duration}
-                </div>
-              </div>
-              
-              <a 
-                href="/register" 
-                className="w-full text-center bg-slate-900 hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition-all"
+              <Tilt 
+                tiltMaxAngleX={5} 
+                tiltMaxAngleY={5} 
+                scale={1.02} 
+                transitionSpeed={2500} 
+                className="h-full"
               >
-                {lang === 'ar' ? 'سجل الآن' : 'Register Now'}
-              </a>
+                <div className="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-xl flex flex-col justify-between h-full transition-colors duration-300">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">{prog.title}</h3>
+                    <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">{prog.description}</p>
+                    <div className="inline-block px-4 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 rounded-full font-bold text-sm mb-6">
+                      {prog.duration}
+                    </div>
+                  </div>
+                  
+                  <a 
+                    href="/register" 
+                    className="w-full text-center bg-slate-900 dark:bg-slate-700 hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-500 text-white font-bold py-3 rounded-xl transition-all"
+                  >
+                    {lang === 'ar' ? 'سجل الآن' : 'Register Now'}
+                  </a>
+                </div>
+              </Tilt>
             </motion.div>
           ))}
         </div>

@@ -5,6 +5,8 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+import ParticlesBackground from "./ParticlesBackground";
+
 interface HeroProps {
   lang: "en" | "ar";
 }
@@ -38,8 +40,11 @@ export default function Hero({ lang }: HeroProps) {
         <source src="/videos/new-video.mp4" type="video/mp4" />
       </video>
 
+      {/* Particles Effect */}
+      <ParticlesBackground />
+
       {/* Dark Gradient Overlay for better contrast and premium look */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/60 to-slate-900 z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/60 to-slate-900 z-30"></div>
 
       {/* Buttons Container */}
       <motion.div

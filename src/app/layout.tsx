@@ -5,7 +5,9 @@ import "./globals.css";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp"; 
 import TopBar from "@/components/TopBar"; 
 import ScrollProgress from "@/components/ScrollProgress"; 
-import BackToTop from "@/components/BackToTop"; // <-- استيراد الزر الجديد
+import BackToTop from "@/components/BackToTop";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const tajawal = Tajawal({
   subsets: ["arabic"],
@@ -27,16 +29,19 @@ export default function RootLayout({
       lang="ar"
       dir="rtl"
       className={`${tajawal.variable} h-full antialiased font-sans`}
+      suppressHydrationWarning
     >
-      <body className={`${tajawal.className} min-h-full flex flex-col bg-slate-50 text-slate-800`}>
-        <ScrollProgress />
-        <TopBar />
-        
-        {children}
-        
-        {/* زدنا الزر هنا باش يبان فالموقع كامل */}
-        <BackToTop />
-        <FloatingWhatsApp /> 
+      <body className={`${tajawal.className} min-h-full flex flex-col bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300`}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <LoadingScreen />
+          <ScrollProgress />
+          <TopBar />
+          
+          {children}
+          
+          <BackToTop />
+          <FloatingWhatsApp /> 
+        </ThemeProvider>
       </body>
     </html>
   );

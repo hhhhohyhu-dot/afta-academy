@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
 
 interface NavbarProps {
   lang: "en" | "ar";
@@ -13,6 +14,7 @@ interface NavbarProps {
 export default function Navbar({ lang, setLang }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const isAr = lang === "ar";
+  const { theme, setTheme } = useTheme();
 
   const toggleLang = () => {
     setLang(isAr ? "en" : "ar");
@@ -58,6 +60,18 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
             {isAr ? "English" : "العربية"}
           </button>
 
+          {/* Dark Mode Toggle */}
+          <button 
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} 
+            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+          >
+            {theme === 'dark' ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+            )}
+          </button>
+
           <Link href="/register" className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-white px-6 py-3 rounded-xl font-bold transition-all duration-300 shadow-[0_0_15px_rgba(245,158,11,0.4)] hover:shadow-[0_0_25px_rgba(245,158,11,0.6)] hover:-translate-y-0.5">
             {isAr ? "سجل الآن" : "Register Now"}
           </Link>
@@ -96,6 +110,12 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
               </Link>
               <button onClick={() => { toggleLang(); closeMenu(); }} className="text-orange-500 text-left font-medium mt-2">
                 {isAr ? "English" : "العربية"}
+              </button>
+              <button 
+                onClick={() => { setTheme(theme === 'dark' ? 'light' : 'dark'); closeMenu(); }} 
+                className="text-slate-400 hover:text-white text-left font-medium mt-2 flex items-center gap-2"
+              >
+                {theme === 'dark' ? 'وضع النهار ☀️' : 'وضع الليل 🌙'}
               </button>
             </div>
           </motion.div>
