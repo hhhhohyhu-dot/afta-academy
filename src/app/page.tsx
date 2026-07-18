@@ -11,8 +11,9 @@ import AboutAcademy from "@/components/AboutAcademy";
 import Programs from "@/components/Programs";
 import TrainingJourney from "@/components/TrainingJourney";
 import CampusLife from "@/components/CampusLife";
+import dynamic from 'next/dynamic';
 import AirlinePartners from "@/components/AirlinePartners";
-import Interactive3DPlane from "@/components/Interactive3DPlane";
+const Interactive3DPlane = dynamic(() => import("@/components/Interactive3DPlane"), { ssr: false });
 import Testimonials from "@/components/Testimonials"; // <-- زدنا آراء الخريجين
 import Gallery from "@/components/Gallery";
 import ParallaxBanner from "@/components/ParallaxBanner"; // <-- زدنا البانر المتحرك
