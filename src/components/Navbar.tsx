@@ -30,7 +30,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
         {/* Logo */}
         <Link 
           href="/" 
-          className="flex items-center bg-white/95 hover:bg-white px-4 py-2 rounded-2xl shadow-[0_0_15px_rgba(255,255,255,0.05)] transition-all duration-300"
+          className="flex items-center px-2 py-2 transition-transform duration-300 hover:scale-105"
         >
           <Image
             src="/images/logo.jpg"
