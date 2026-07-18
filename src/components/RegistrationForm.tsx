@@ -11,23 +11,21 @@ export default function RegistrationForm() {
     e.preventDefault();
     setStatus('loading');
 
-    try {
-      // هنا كنصيفطو المعلومات للـ API لي صاوبنا الفوق
-      const response = await fetch('/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
+    const message = `مرحبا، أريد التسجيل في أكاديمية AFTA:
+الاسم: ${formData.name}
+البريد الإلكتروني: ${formData.email}
+الهاتف: ${formData.phone}
+التخصص: ${formData.program}`;
 
-      if (response.ok) {
-        setStatus('success');
-        // نرجعو الفورم عادي من بعد 3 ثواني
-        setTimeout(() => setStatus('idle'), 3000);
-      }
-    } catch (error) {
-      console.error(error);
-      setStatus('idle');
-    }
+    // WhatsApp number provided by user with +212 country code
+    const whatsappNumber = "212781352996";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+
+    setStatus('success');
+    setTimeout(() => setStatus('idle'), 5000);
   };
 
   return (
