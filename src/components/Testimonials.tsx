@@ -93,7 +93,7 @@ export default function Testimonials({ lang }: TestimonialsProps) {
 
               {/* نص الرأي */}
               <p className="text-slate-300 text-lg leading-relaxed mb-8 relative z-10 flex-grow">
-                "{testimonial.quote}"
+                &quot;{testimonial.quote}&quot;
               </p>
 
               {/* معلومات الشخص */}

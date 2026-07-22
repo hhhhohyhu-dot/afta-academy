@@ -1,4 +1,20 @@
-export const translations: any = {
+export interface TranslationContent {
+  hero: { title: string; btn: string };
+  stats: {
+    graduates: string;
+    graduatesLabel: string;
+    years: string;
+    yearsLabel: string;
+    partners: string;
+    partnersLabel: string;
+    placement: string;
+    placementLabel: string;
+  };
+  whyUs: { title: string };
+  campus: { title: string };
+}
+
+export const translations: Record<string, TranslationContent> = {
   ar: {
     hero: { title: "أكاديمية AFTA للتدريب المطارِي", btn: "سجل الآن" },
     stats: { 

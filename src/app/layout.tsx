@@ -16,7 +16,16 @@ const tajawal = Tajawal({
 });
 
 export const metadata: Metadata = {
-  // ... (خلي الميتا داتا ديالك كيما هي)
+  title: "أكاديمية AFTA للتدريب المطاري وضيافة الطيران | AFTA Aviation Academy",
+  description: "أكاديمية AFTA المتخصصة في مهن الطيران، مضيفي ومضيفات الطيران، والخدمات المطرية والأسفار بالمغرب. تكوين احترافي وفرص عمل مضمونة.",
+  keywords: ["AFTA Academy", "أكاديمية AFTA", "مضيف طيران", "طيران المغرب", "تكوين مطاري", "Flight Attendant Morocco", "Aviation Academy"],
+  authors: [{ name: "AFTA Academy" }],
+  openGraph: {
+    title: "أكاديمية AFTA للتدريب المطاري وضيافة الطيران",
+    description: "انضم إلى أقوى برنامج تكوين في مجال ضيافة الطيران والخدمات المطارية بالمغرب.",
+    locale: "ar_MA",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -31,7 +40,10 @@ export default function RootLayout({
       className={`${tajawal.variable} h-full antialiased font-sans`}
       suppressHydrationWarning
     >
-      <body className={`${tajawal.className} min-h-full flex flex-col bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300`}>
+      <body 
+        className={`${tajawal.className} min-h-full flex flex-col bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300`}
+        suppressHydrationWarning
+      >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <LoadingScreen />
           <ScrollProgress />

@@ -92,8 +92,27 @@ function ErrorFallback() {
 }
 
 export default function Interactive3DPlane({ lang }: { lang: "en" | "ar" }) {
+  const isArabic = lang === "ar";
+
   return (
-    <section className="relative w-full h-[600px] bg-slate-900 overflow-hidden flex items-center justify-center">
+    <section 
+      className="relative w-full h-[600px] overflow-hidden flex items-center justify-center"
+      style={{ backgroundColor: '#0f172a' }}
+    >
+      {/* Overlay Title & Interactive Badge */}
+      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-30 text-center pointer-events-none px-4 w-full max-w-xl">
+        <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-orange-500/20 text-orange-400 border border-orange-500/40 rounded-full text-xs font-bold tracking-wider uppercase mb-3 backdrop-blur-md">
+          <span className="w-2 h-2 rounded-full bg-orange-400 animate-ping" />
+          {isArabic ? "تجربة ثلاثية الأبعاد 360°" : "360° Interactive 3D Experience"}
+        </span>
+        <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight drop-shadow-md">
+          {isArabic ? "اسحب لتدوير واستكشاف طائرة الأكاديمية" : "Drag to Rotate & Explore Academy Aircraft"}
+        </h3>
+        <p className="text-slate-300 text-xs md:text-sm mt-1 font-medium">
+          {isArabic ? "استعمل الماوس أو اللمس للتدوير والتكبير والتصغير" : "Use mouse or touch to rotate, zoom in and out"}
+        </p>
+      </div>
+
       {/* 3D Canvas with Error Boundary */}
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <div className="absolute inset-0 z-20">

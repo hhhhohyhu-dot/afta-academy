@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import Particles, { ParticlesProvider } from "@tsparticles/react";
-import { type Container, type ISourceOptions } from "@tsparticles/engine";
+import { type ISourceOptions } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 
 export default function ParticlesBackground() {
@@ -81,8 +81,8 @@ export default function ParticlesBackground() {
     <ParticlesProvider init={async (engine) => { await loadSlim(engine); }}>
       <Particles
         id="tsparticles"
-        particlesLoaded={async (container?: Container) => {
-          // container loaded
+        particlesLoaded={async () => {
+          // particles ready
         }}
         options={options}
         className="absolute inset-0 z-20 pointer-events-none"

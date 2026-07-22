@@ -1,16 +1,16 @@
 /** @jsxImportSource react */
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useSyncExternalStore } from 'react';
 import { InlineWidget } from "react-calendly";
 import { motion } from 'framer-motion';
 
-export default function InterviewBooking() {
-  const [isMounted, setIsMounted] = useState(false);
+const emptySubscribe = () => () => {};
+function useIsClient() {
+  return useSyncExternalStore(emptySubscribe, () => true, () => false);
+}
 
-  // هاد اللعيبة باش نتأكدو أن الكالندر ما يخدم حتى يتقرا فالمتصفح (Client-side)
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+export default function InterviewBooking() {
+  const isMounted = useIsClient();
 
   if (!isMounted) return <div className="h-[700px] flex items-center justify-center">جاري تحميل نظام الحجز...</div>;
 
