@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Float, Environment, ContactShadows } from "@react-three/drei";
+import { OrbitControls, Float, ContactShadows } from "@react-three/drei";
 import * as THREE from "three";
 import { ErrorBoundary } from "react-error-boundary";
 
@@ -117,10 +117,10 @@ export default function Interactive3DPlane({ lang }: { lang: "en" | "ar" }) {
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <div className="absolute inset-0 z-20">
           <Canvas camera={{ position: [5, 3, 6], fov: 45 }}>
-            {/* Environment for realistic reflections */}
-            <Environment preset="city" />
-            <ambientLight intensity={0.4} />
+            <ambientLight intensity={0.8} />
             <directionalLight position={[10, 10, 5]} intensity={1.5} castShadow />
+            <directionalLight position={[-10, -10, -5]} intensity={0.6} />
+            <pointLight position={[0, 5, 0]} intensity={0.5} />
 
             {/* Floating animation wrapper */}
             <Float 

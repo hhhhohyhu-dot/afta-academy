@@ -1,7 +1,6 @@
 "use client";
 import React from 'react'; // إضافة هذا السطر ضرورية لحل مشكلة JSX
 
-import Image from 'next/image';
 
 interface FeatureProps {
   lang: 'en' | 'ar';
@@ -37,13 +36,11 @@ export default function Features({ lang }: FeatureProps) {
                 lang === 'ar' ? 'lg:grid-flow-col-reverse' : 'lg:grid-flow-col'
               }`}
             >
-              <div className="lg:col-span-3 relative h-80 w-full overflow-hidden rounded-2xl shadow-xl">
-                <Image 
+              <div className="lg:col-span-3">
+                <img 
                   src={item.img} 
                   alt={item.title} 
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 75vw"
-                  className="object-cover"
+                  className="w-full h-80 object-cover rounded-2xl shadow-xl"
                 />
               </div>
               

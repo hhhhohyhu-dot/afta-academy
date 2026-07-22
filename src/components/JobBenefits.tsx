@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import Image from 'next/image';
 
 // هنا كنزيدو الـ lang باش المكون يعرف اللغة اللي خدامين بيها
 export default function JobBenefits({ lang }: { lang: 'en' | 'ar' }) {
@@ -32,13 +31,10 @@ export default function JobBenefits({ lang }: { lang: 'en' | 'ar' }) {
           transition={{ duration: 0.8 }}
           className="relative rounded-3xl overflow-hidden shadow-2xl h-[500px] flex items-center"
         >
-          <Image 
+          <img 
             src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop"
             alt="Airport Terminal Professional"
-            fill
-            sizes="100vw"
-            unoptimized
-            className="object-cover"
+            className="absolute inset-0 w-full h-full object-cover"
           />
           
           <div className="absolute inset-0 bg-slate-900/60" />
